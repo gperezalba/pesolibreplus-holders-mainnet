@@ -1,0 +1,24 @@
+specVersion: 0.0.2
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum/contract
+    name: Token
+    network: mainnet
+    source:
+      address: "0xfac1bd0012c0fc649af435cf04834655f7b70be1"
+      startBlock: 9900000
+      abi: Token
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.3
+      language: wasm/assemblyscript
+      entities:
+        - Transfer
+      abis:
+        - name: Token
+          file: ./abis/Token.json
+      eventHandlers:
+        - event: Transfer(indexed address,indexed address,uint256,indexed bytes)
+          handler: handleTransfer
+      file: ./src/token.ts

@@ -1,4 +1,3 @@
-import { BigInt, Address, Bytes } from "@graphprotocol/graph-ts";
 import { Transfer } from "../generated/Token/Token";
 import { Transaction } from "../generated/schema";
 
